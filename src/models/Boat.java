@@ -3,29 +3,32 @@ package models;
 
 import utilities.VehicleType;
 
-public class Bus extends Vehicle {
+public class Boat extends Vehicle {
 
-	private int numberOfSeats;
+	private int length;
+	private int lifeboats;
 
-	public Bus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats) throws ColorNotFoundException {
+	public Boat(String registrationNumber, String color, int length, int lifeboats) throws ColorNotFoundException, BoatNotFoundException {
 		super(registrationNumber);
 		this.setColor(color);
-		this.numberOfWheels = numberOfWheels;
-		this.vehicleType = VehicleType.BUS;
-		this.numberOfSeats = numberOfSeats;
-
+		this.numberOfWheels = 0;
+		this.vehicleType = VehicleType.BOAT;
+		this.setLength(length);
+		this.lifeboats = lifeboats;
 	}
 
 
 
-	public int getNumberOfSeats() {
-		return numberOfSeats;
+	public int getLength() {
+		return length;
 	}
 
 
-	public void setNumberOfSeats(int numberOfSeats) {
-		this.numberOfSeats = numberOfSeats;
+
+	public void setLength(int length) throws BoatNotFoundException{
+		this.length = length;
 	}
+
 
 
 	protected void setColor(String color) throws ColorNotFoundException{
@@ -49,26 +52,31 @@ public class Bus extends Vehicle {
 		}
 	}
 
-
 	@Override
 	public String toString() {
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("--------BUS--------");
+		sb.append("--------BOAT--------");
 		sb.append("Registration number is: ");
 		sb.append(this.registrationNumber);
 		sb.append("\n");
 		sb.append("Color is: ");
 		sb.append(this.color);
 		sb.append("\n");
-		sb.append("Number of wheels: ");
-		sb.append(numberOfWheels);
+		sb.append("Length is ");
+		sb.append(length);
 		sb.append("\n");
-		sb.append("Number of seats: ");
-		sb.append(numberOfSeats);
+		sb.append("It has ");
+		sb.append(lifeboats);
+		sb.append(" lifeboats");
 		sb.append("\n");
+
+
 		return sb.toString();
 	}
+
+
+
 
 
 	public String getColor() throws ColorNotFoundException {

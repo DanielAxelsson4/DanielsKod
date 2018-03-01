@@ -18,6 +18,13 @@ public class Garage {
 		return garageMap;
 	}
 
+	public void addVehicle(Vehicle newVehicle ) {
+		if (garageMap.containsKey(newVehicle.getRegistrationNumber())){
+		}
+		// Lägg till vehicle
+		garageMap.put(newVehicle.getRegistrationNumber(), newVehicle);
+	}
+
 	public void listVehicles(TreeMap<String,Vehicle> garageMap) {
 
 		for (Vehicle nextVehicle : garageMap.values() ) {
