@@ -1,4 +1,5 @@
 
+
 package models;
 
 import utilities.VehicleType;
@@ -84,5 +85,6 @@ public class Boat extends Vehicle {
 	}
 
 }
+
 
 
