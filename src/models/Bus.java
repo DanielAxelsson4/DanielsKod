@@ -5,16 +5,16 @@ import utilities.VehicleType;
 
 public class Bus extends Vehicle {
 
-	public Bus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats) {
+	public Bus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats) throws ColorNotFoundException {
 		super(registrationNumber);
-		this.color = setColor(color);
+		this.setColor(color);	
 		this.numberOfWheels = numberOfWheels;
 		this.vehicleType = VehicleType.CAR;
 
 	}
 
 
-	protected String setColor(String color) {
+	protected void setColor(String color) throws ColorNotFoundException{
 		if (color.equals("Black")) {
 			this.color = color;
 		}
@@ -33,10 +33,10 @@ public class Bus extends Vehicle {
 		else {
 			throw new ColorNotFoundException();
 		}
-
-		public String getColor() throws ColorNotFoundException {
-			return this.color;
-		}
-
 	}
+	
+	public String getColor() throws ColorNotFoundException {
+		return this.color;
+	}
+}
 
