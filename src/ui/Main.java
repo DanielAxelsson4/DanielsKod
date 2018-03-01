@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 
 import models.AirPlane;
 import models.AirlineNameNotFoundException;
+import models.Boat;
+import models.BoatNotFoundException;
 import models.Car;
 import models.ColorNotFoundException;
 import models.Garage;
@@ -47,32 +49,26 @@ public class Main {
 
 		try
 		{
-			//Boat boat = new Boat(registrationNumber, color, length, lifeboats);
-			//garageCatalog.addVehicle(boat);
-
-			//System.out.println(boat.toString());
-
 			Car car = new Car(registrationNumber, color, numberOfWheels.intValue(), power.intValue());
 			System.out.println(car.toString());
+			AirPlane ap = new AirPlane(airplaneRegNum, airplaneNumOfWheels.intValue(), airlineName);
+			System.out.println(ap.toString());
+			Boat boat = new Boat(registrationNumber, color, length, lifeboats);
+			System.out.println(boat.toString());
+
 		}
 		catch(ColorNotFoundException e)
 		{
 			System.out.println("The color : " + color + " was not found");
 		}
-
-
-		try
-		{
-			AirPlane ap = new AirPlane(airplaneRegNum, numberOfWheels.intValue(), airlineName);
-			System.out.println(ap.toString());
-		}
 		catch(AirlineNameNotFoundException e)
 		{
 			System.out.println("The airline name " + airlineName + " was not found" );
 		}
-
-
-
+		catch(BoatNotFoundException e)
+		{
+			System.out.println("Boat was not found");
+		}
 
 
 	}

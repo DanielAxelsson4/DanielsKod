@@ -25,6 +25,8 @@ public class Garage {
 		garageMap.put(newVehicle.getRegistrationNumber(), newVehicle);
 	}
 
+
+
 	public void listVehicles(TreeMap<String,Vehicle> garageMap) {
 
 		for (Vehicle nextVehicle : garageMap.values() ) {

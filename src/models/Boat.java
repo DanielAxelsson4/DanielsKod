@@ -1,4 +1,5 @@
 
+
 package models;
 
 import utilities.VehicleType;
@@ -8,15 +9,13 @@ public class Boat extends Vehicle {
 	private int length;
 	private int lifeboats;
 
-	public Boat(String registrationNumber, String color, int length, int lifeboats) throws ColorNotFoundException {
+	public Boat(String registrationNumber, String color, int length, int lifeboats) throws ColorNotFoundException, BoatNotFoundException {
 		super(registrationNumber);
 		this.setColor(color);
 		this.numberOfWheels = 0;
 		this.vehicleType = VehicleType.BOAT;
-		this.length = length;
+		this.setLength(length);
 		this.lifeboats = lifeboats;
-
-
 	}
 
 
@@ -27,7 +26,7 @@ public class Boat extends Vehicle {
 
 
 
-	public void setLength(int length) {
+	public void setLength(int length) throws BoatNotFoundException{
 		this.length = length;
 	}
 
@@ -86,5 +85,6 @@ public class Boat extends Vehicle {
 	}
 
 }
+
 
 
