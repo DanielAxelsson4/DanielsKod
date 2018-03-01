@@ -1,4 +1,4 @@
-package vehicle;
+package models;
 
 import utilities.VehicleType;
 
@@ -14,11 +14,11 @@ public abstract class Vehicle {
 
 
 	// Konstruktor
-	protected Vehicle(String registrationNumber,String color,int numberOfWheels,VehicleType vehicleType, int price) {
+	protected Vehicle(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
-		this.color = color;
-		this.numberOfWheels = numberOfWheels;
-		this.vehicleType = vehicleType;
+		this.color = "";
+		this.numberOfWheels = 0;
+		this.vehicleType = vehicleType.NOTYPE;
 	}
 
 
@@ -26,12 +26,11 @@ public abstract class Vehicle {
 
 
 
+	public String getRegistrationNumber()  {
+		return registrationNumber;
+	}
 
-
-
-
-
-
+	/*
 
 	@Override
 	public boolean equals(Object obj) {
@@ -52,13 +51,22 @@ public abstract class Vehicle {
 		else {
 			return false;
 		}
-	}
+	}*/
 
 	@Override
 	public String toString() {
 		return "RegistrationNumber = " + registrationNumber + " \n" + "color = " + color + " \n " + "Number of wheels= " + numberOfWheels + " \n" + "vehicle type= "
 				+ vehicleType +  " \n ";
 	}
+
+
+
+
+
+
+
+
+
 
 
 
