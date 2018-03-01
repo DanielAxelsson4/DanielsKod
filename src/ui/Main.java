@@ -39,7 +39,7 @@ public class Main {
 		}
 		try
 		{
-			AirPlane ap = new AirPlane(airplaneRegNum, numberOfWheels.intValue(), airlineName);
+			AirPlane ap = new AirPlane(airplaneRegNum, airplaneNumOfWheels.intValue(), airlineName);
 			System.out.println(ap.toString());
 		}
 		catch(AirlineNameNotFoundException e)
