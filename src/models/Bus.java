@@ -9,9 +9,10 @@ public class Bus extends Vehicle {
 		super(registrationNumber);
 		this.setColor(color);	
 		this.numberOfWheels = numberOfWheels;
-		this.vehicleType = VehicleType.CAR;
+		this.vehicleType = VehicleType.BUS;
 
 	}
+
 
 
 	protected void setColor(String color) throws ColorNotFoundException{
@@ -38,5 +39,7 @@ public class Bus extends Vehicle {
 	public String getColor() throws ColorNotFoundException {
 		return this.color;
 	}
+
 }
+
 
