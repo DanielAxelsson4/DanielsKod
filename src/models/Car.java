@@ -4,39 +4,47 @@ import utilities.VehicleType;
 
 public class Car extends Vehicle {
 
-	public Car(String registrationNumber, String color, int numberOfWheels) {
+	public Car(String registrationNumber, String color, int numberOfWheels) throws ColorNotFoundException {
 		super(registrationNumber);
-		this.color = setColor(color);
+		this.SetColor(color);
 		this.numberOfWheels = numberOfWheels;
 		this.vehicleType = VehicleType.CAR;
-
 	}
 
-
-	protected String setColor(String color) {
-		if (color.equals("Black")) {
+	protected void SetColor(String color) throws ColorNotFoundException
+	{
+		if(color.equals("Black"))
 			this.color = color;
-		}
-		else if (color.equals("White") ) {
+		else if(color.equals("White"))
 			this.color = color;
-		}
-		else if (color.equals("Green") ) {
+		else if(color.equals("Green"))
 			this.color = color;
-		}
-		else if (color.equals("Red") ) {
+		else if(color.equals("Red"))
 			this.color = color;
-		}
-		else if (color.equals("Yellow") ) {
+		else if(color.equals("Yellow"))
 			this.color = color;
-		}
-		else {
+		else
 			throw new ColorNotFoundException();
-		}
-
-		public String getColor() throws ColorNotFoundException {
-			return this.color;
-		}
-
-		public String toString
-
 	}
+
+	public String getColor()
+	{
+		return this.color;
+	}
+
+	@Override
+	public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append("registration number is: ");
+		sb.append(this.registrationNumber);
+		sb.append("\n");
+		sb.append("color is: ");
+		sb.append(this.color);
+		sb.append("\n");
+		sb.append("number of wheels: ");
+		sb.append(numberOfWheels);
+
+		return sb.toString();
+	}
+}

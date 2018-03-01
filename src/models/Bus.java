@@ -1,3 +1,4 @@
+
 package models;
 
 import utilities.VehicleType;
@@ -38,3 +39,4 @@ public class Bus extends Vehicle {
 		}
 
 	}
+
