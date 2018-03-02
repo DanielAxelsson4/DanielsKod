@@ -26,11 +26,11 @@ public class Garage {
 		garageMap = new TreeMap<String, Vehicle>();
 	}
 
-	public static TreeMap<String,Vehicle> getVehicleMap() {
+	protected static TreeMap<String,Vehicle> getVehicleMap() {
 		return garageMap;
 	}
 
-	public void addVehicle(Vehicle newVehicle ) {
+	protected void addVehicle(Vehicle newVehicle ) {
 		if (garageMap.containsKey(newVehicle.getRegistrationNumber())){
 			garageMap.put(newVehicle.getRegistrationNumber(), newVehicle);
 		}
@@ -39,31 +39,31 @@ public class Garage {
 
 
 
-	public void listVehicles(TreeMap<String,Vehicle> garageMap) {
+	protected void listVehicles(TreeMap<String,Vehicle> garageMap) {
 
 		for (Vehicle nextVehicle : garageMap.values() ) {
 			System.out.println(nextVehicle.toString() );
 		}
 	}
 
-	public void deleteVehicle(Vehicle newVehicle ) {
+	protected void deleteVehicle(Vehicle newVehicle ) {
 		if (garageMap.containsKey(newVehicle.getRegistrationNumber())){
 			garageMap.remove(newVehicle.getRegistrationNumber());
 		}
 	}
 
 
-	public void printVehicles(TreeMap<String,Vehicle> garageMap) {
+	protected void printVehicles(TreeMap<String,Vehicle> garageMap) {
 		for (Vehicle nextVehicle : garageMap.values() ) {
 			System.out.println(nextVehicle.toString());
 		}
 	}
 
-	public int getNumberOfVehicles() {
+	protected int getNumberOfVehicles() {
 		return garageMap.size();
 	}
 
-	public void createCar() {
+	protected void createCar() {
 		try {
 			registrationNumber = JOptionPane.showInputDialog("Input registration number of the car ...");
 			color = JOptionPane.showInputDialog("Input Color of the Car...");
@@ -77,7 +77,7 @@ public class Garage {
 		}
 	}
 
-	public void createBoat() {
+	protected void createBoat() {
 
 		try {
 			registrationNumber = JOptionPane.showInputDialog("Input registration number of the car ...");
@@ -97,7 +97,7 @@ public class Garage {
 		}
 	}
 
-	public void createAirplane() {
+	protected void createAirplane() {
 		try {
 			registrationNumber = JOptionPane.showInputDialog("Input registration number of the car ...");
 			numberOfWheels = Integer.parseInt(JOptionPane.showInputDialog("Input Number of wheels..."));
@@ -111,7 +111,7 @@ public class Garage {
 		}
 	}
 
-	public void createMotorcycle() {
+	protected void createMotorcycle() {
 		try {
 			registrationNumber = JOptionPane.showInputDialog("Input registration number of the car ...");
 			color = JOptionPane.showInputDialog("Input Color of the Car...");
@@ -126,7 +126,7 @@ public class Garage {
 	}
 
 
-	public void createBus() {
+	protected void createBus() {
 		try {
 			registrationNumber = JOptionPane.showInputDialog("Input registration number of the car ...");
 			color = JOptionPane.showInputDialog("Input Color of the Car...");
