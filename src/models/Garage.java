@@ -31,12 +31,9 @@ public class Garage {
 	}
 
 	protected void addVehicle(Vehicle newVehicle ) {
-		if (garageMap.containsKey(newVehicle.getRegistrationNumber())){
-			garageMap.put(newVehicle.getRegistrationNumber(), newVehicle);
-		}
+		garageMap.put(newVehicle.getRegistrationNumber(), newVehicle);
 
 	}
-
 
 
 	protected void listVehicles(TreeMap<String,Vehicle> garageMap) {
@@ -49,13 +46,6 @@ public class Garage {
 	protected void deleteVehicle(Vehicle newVehicle ) {
 		if (garageMap.containsKey(newVehicle.getRegistrationNumber())){
 			garageMap.remove(newVehicle.getRegistrationNumber());
-		}
-	}
-
-
-	protected void printVehicles(TreeMap<String,Vehicle> garageMap) {
-		for (Vehicle nextVehicle : garageMap.values() ) {
-			System.out.println(nextVehicle.toString());
 		}
 	}
 
