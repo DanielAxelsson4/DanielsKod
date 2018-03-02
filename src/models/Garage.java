@@ -63,14 +63,23 @@ public class Garage {
 			garageMap.put(car.getRegistrationNumber(), car);
 		}
 		catch (ColorNotFoundException e) {
-			System.out.println("The color : " + color + " was not found");
+			System.out.println("The color : " + color + " was not found \n Valid colors are: Black, White, Green, Red, Yellow");
+			if(color.equalsIgnoreCase("Black"))
+				this.color = color;
+			else if(color.equalsIgnoreCase("White"))
+				this.color = color;
+			else if(color.equalsIgnoreCase("Green"))
+				this.color = color;
+			else if(color.equalsIgnoreCase("Red"))
+				this.color = color;
+			else if(color.equalsIgnoreCase("Yellow"))
 		}
 	}
 
 	protected void createBoat() {
 
 		try {
-			registrationNumber = JOptionPane.showInputDialog("Input registration number of the car ...");
+			registrationNumber = JOptionPane.showInputDialog("Input registration number of the boat ...");
 			color = JOptionPane.showInputDialog("Input Color of the Car...");
 			length = Integer.parseInt(JOptionPane.showInputDialog("Input length in metres"));
 			lifeboats = Integer.parseInt(JOptionPane.showInputDialog("Input number of lifeboats"));
@@ -83,13 +92,13 @@ public class Garage {
 		}
 		catch(ColorNotFoundException e)
 		{
-			System.out.println("The color : " + color + " was not found");
+			System.out.println("The color : " + color + " was not found" + " was not found \n Valid colors are: Black, White, Green, Red, Yellow");
 		}
 	}
 
 	protected void createAirplane() {
 		try {
-			registrationNumber = JOptionPane.showInputDialog("Input registration number of the car ...");
+			registrationNumber = JOptionPane.showInputDialog("Input registration number of the airplane ...");
 			numberOfWheels = Integer.parseInt(JOptionPane.showInputDialog("Input Number of wheels..."));
 			airlineName = JOptionPane.showInputDialog("Input air line name");
 			AirPlane airplane = new AirPlane(registrationNumber, numberOfWheels, airlineName);
@@ -97,13 +106,14 @@ public class Garage {
 		}
 		catch(AirlineNameNotFoundException e)
 		{
-			System.out.println("The airline name " + airlineName + " was not found" );
+			System.out.println("The airline name " + airlineName + " was not found \n Valid airlinenames are: SAS, Alitalia, Berlin");
+
 		}
 	}
 
 	protected void createMotorcycle() {
 		try {
-			registrationNumber = JOptionPane.showInputDialog("Input registration number of the car ...");
+			registrationNumber = JOptionPane.showInputDialog("Input registration number of the motorcycle ...");
 			color = JOptionPane.showInputDialog("Input Color of the Car...");
 			cylinderVolume = Integer.parseInt(JOptionPane.showInputDialog("Input cylinder volume in litres..."));
 			Motorcycle motorcycle = new Motorcycle(registrationNumber, color, cylinderVolume);
@@ -111,14 +121,14 @@ public class Garage {
 		}
 		catch(ColorNotFoundException e)
 		{
-			System.out.println("The color : " + color + " was not found");
+			System.out.println("The color : " + color + " was not found \n Valid colors are: Black, White, Green, Red, Yellow");
 		}
 	}
 
 
 	protected void createBus() {
 		try {
-			registrationNumber = JOptionPane.showInputDialog("Input registration number of the car ...");
+			registrationNumber = JOptionPane.showInputDialog("Input registration number of the bus ...");
 			color = JOptionPane.showInputDialog("Input Color of the Car...");
 			numberOfWheels = Integer.parseInt(JOptionPane.showInputDialog("Input Number of wheels..."));
 			numberOfSeats = Integer.parseInt(JOptionPane.showInputDialog("Input Number of seats"));
@@ -127,7 +137,7 @@ public class Garage {
 		}
 		catch(ColorNotFoundException e)
 		{
-			System.out.println("The color : " + color + " was not found");
+			System.out.println("The color : " + color + " was not found \n Valid colors are: Black, White, Green, Red, Yellow");
 		}
 	}
 
