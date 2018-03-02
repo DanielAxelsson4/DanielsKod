@@ -250,5 +250,10 @@ public abstract class GarageHandler {
 		}
 		return bus;
 	}
+	
+	private void dummy()
+	{
+		
+	}
 
 }
