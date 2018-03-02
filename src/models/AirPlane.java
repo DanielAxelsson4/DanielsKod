@@ -6,9 +6,9 @@ public class AirPlane extends Vehicle {
 
 	private String airlineName;
 
-	public AirPlane(String registrationNumber, int numberOfWheels, String airlineName) throws AirlineNameNotFoundException {
+	public AirPlane(String registrationNumber, int numberOfWheels, String airlineName) throws AirlineNameNotFoundException, AirplaneNotFoundException {
 		super(registrationNumber);
-		this.numberOfWheels = numberOfWheels;
+		this.setNumberOfWheels(numberOfWheels);
 		this.vehicleType = VehicleType.AIRPLANE;
 		this.setAirlineName(airlineName);
 	}
@@ -54,5 +54,18 @@ public class AirPlane extends Vehicle {
 
 	public String getAirlineName() {
 		return airlineName;
+	}
+	
+	public int getNumberOfWheels()
+	{
+		return numberOfWheels;
+	}
+		
+	public void setNumberOfWheels(int numberOfWheels) throws AirplaneNotFoundException
+	{
+		if(numberOfWheels > 0)
+			this.numberOfWheels = numberOfWheels;
+		else
+			throw new AirplaneNotFoundException();
 	}
 }

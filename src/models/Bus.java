@@ -8,12 +8,12 @@ public class Bus extends Vehicle {
 
 	private int numberOfSeats;
 
-	public Bus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats) throws ColorNotFoundException {
+	public Bus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats) throws ColorNotFoundException, BusNotFoundException {
 		super(registrationNumber);
 		this.setColor(color);
 		this.numberOfWheels = numberOfWheels;
 		this.vehicleType = VehicleType.BUS;
-		this.numberOfSeats = numberOfSeats;
+		this.setNumberOfSeats(numberOfSeats);
 
 	}
 
@@ -24,8 +24,12 @@ public class Bus extends Vehicle {
 	}
 
 
-	public void setNumberOfSeats(int numberOfSeats) {
-		this.numberOfSeats = numberOfSeats;
+	public void setNumberOfSeats(int numberOfSeats) throws BusNotFoundException 
+	{
+		if(numberOfSeats > 0)
+			this.numberOfSeats = numberOfSeats;
+		else
+			throw new BusNotFoundException();
 	}
 
 

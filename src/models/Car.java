@@ -8,11 +8,14 @@ public class Car extends Vehicle {
 	private int power;
 
 
-	public int getPower() {
-		return power;
+	public int getPower() throws CarNotFoundException{
+		if( this.power > 0)
+			return power;
+		else
+			throw new CarNotFoundException();
 	}
 
-	public Car(String registrationNumber, String color, int numberOfWheels, int power) throws ColorNotFoundException {
+	public Car(String registrationNumber, String color, int numberOfWheels, int power) throws ColorNotFoundException, CarNotFoundException {
 		super(registrationNumber);
 		this.SetColor(color);
 		this.numberOfWheels = numberOfWheels;
@@ -61,6 +64,7 @@ public class Car extends Vehicle {
 		return sb.toString();
 	}
 
+	
 
 
 

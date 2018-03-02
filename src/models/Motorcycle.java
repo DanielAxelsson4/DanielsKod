@@ -7,7 +7,7 @@ public class Motorcycle extends Vehicle {
 
 	private int cylinderVolume;
 
-	public Motorcycle(String registrationNumber, String color, int cylinderVolume) throws ColorNotFoundException {
+	public Motorcycle(String registrationNumber, String color, int cylinderVolume) throws ColorNotFoundException, MotorCycleNotFoundException {
 		super(registrationNumber);
 		this.SetColor(color);
 		this.numberOfWheels = 2;
@@ -38,12 +38,15 @@ public class Motorcycle extends Vehicle {
 
 
 
-	public int isCylinderVolume() {
+	public int getCylinderVolume() {
 		return cylinderVolume;
 	}
 
-	public void setCylinderVolume(int cylinderVolume) {
-		this.cylinderVolume = cylinderVolume;
+	public void setCylinderVolume(int cylinderVolume) throws MotorCycleNotFoundException {
+		if(cylinderVolume > 0)
+			this.cylinderVolume = cylinderVolume;
+		else
+			throw new MotorCycleNotFoundException();
 	}
 
 	@Override

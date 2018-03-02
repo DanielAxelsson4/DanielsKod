@@ -27,7 +27,10 @@ public class Boat extends Vehicle {
 
 
 	public void setLength(int length) throws BoatNotFoundException{
-		this.length = length;
+		if(length > 0 )
+			this.length = length;
+		else
+			throw new BoatNotFoundException();
 	}
 
 
