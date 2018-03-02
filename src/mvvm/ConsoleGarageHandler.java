@@ -11,7 +11,7 @@ public class ConsoleGarageHandler extends GarageHandler {
 	protected int length = 0;
 	protected Integer power = null;
 	protected String airlineName = null;
-	
+
 	public ConsoleGarageHandler(String registrationNumber, String color, Integer numberOfWheels, int cylinderVolume,
 			int numberOfSeats, int lifeboats, int length, Integer power, String airlineName) {
 		super();
@@ -25,11 +25,14 @@ public class ConsoleGarageHandler extends GarageHandler {
 		this.power = power;
 		this.airlineName = airlineName;
 	}
-	
-	
 
 
-	
+
+
+
+
+
+
 
 
 

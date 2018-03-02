@@ -3,8 +3,6 @@ package ui;
 
 import javax.swing.JOptionPane;
 
-import mvvm.GarageHandler;
-
 public class Main {
 
 	public static void main(String[] args) {
@@ -48,10 +46,9 @@ public class Main {
 	}
 	if (response == 1) {
 		int regInput = Integer.parseInt(JOptionPane.showInputDialog("Input the registrationnumber of the vehicle you would like to unpark"));
-		//		GarageHandler.removeVehicle(regInput)
 	}
 	if (response == 2) {
-		Garageh
+
 		//		GarageHandler.listVehicle
 	}
 	if (response == 3) {
