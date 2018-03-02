@@ -3,24 +3,15 @@ package ui;
 
 import javax.swing.JOptionPane;
 
+import mvvm.GarageHandler;
+
 public class Main {
 
 	public static void main(String[] args) {
 
 		//prompt the user for input
-		//Garage garage = new Garage();
 
 		callMainMenu();
-
-
-
-
-
-
-
-
-
-
 		}
 
 
@@ -60,6 +51,7 @@ public class Main {
 		//		GarageHandler.removeVehicle(regInput)
 	}
 	if (response == 2) {
+		Garageh
 		//		GarageHandler.listVehicle
 	}
 	if (response == 3) {
