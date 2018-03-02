@@ -5,7 +5,7 @@ import java.util.TreeMap;
 
 import javax.swing.JOptionPane;
 
-public class Garage {
+public abstract class Garage {
 
 	private String registrationNumber = null;
 	private String color = null;
