@@ -2,9 +2,11 @@ package models;
 
 import utilities.VehicleType;
 
+
 public class Car extends Vehicle {
 	
 	private int power;
+	
 
 	public int getPower() {
 		return power;
@@ -58,4 +60,10 @@ public class Car extends Vehicle {
 
 		return sb.toString();
 	}
-}
+	
+
+		
+		
+	}
+	
+

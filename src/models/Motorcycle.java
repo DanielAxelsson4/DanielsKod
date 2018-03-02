@@ -7,7 +7,7 @@ public class Motorcycle extends Vehicle {
 
 	private int cylinderVolume;
 
-	public Motorcycle(String registrationNumber, String color, int numberOfWheels, int cylinderVolume) throws ColorNotFoundException {
+	public Motorcycle(String registrationNumber, String color, int cylinderVolume) throws ColorNotFoundException {
 		super(registrationNumber);
 		this.SetColor(color);
 		this.numberOfWheels = 2;

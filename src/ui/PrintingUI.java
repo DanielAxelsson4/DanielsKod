@@ -6,9 +6,9 @@ import models.Vehicle;
 
 public class PrintingUI {
 
-	public void printCellphoneCatalog(TreeMap<String,Vehicle> vehicleCatalog) {
+	public void printVehicleCatalog(TreeMap<String,Vehicle> garageCatalog) {
 
-		for (Vehicle nextVehicle : vehicleCatalog.values() ) {
+		for (Vehicle nextVehicle : garageCatalog.values() ) {
 			System.out.println(nextVehicle.toString() );
 
 		}
