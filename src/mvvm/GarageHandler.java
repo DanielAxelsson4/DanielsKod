@@ -176,7 +176,7 @@ public abstract class GarageHandler {
 		return airplane;
 	}
 
-	protected Car createCar(String registrationNumber, int numberOfWheels, String color, int power) {
+	public Car createCar(String registrationNumber, int numberOfWheels, String color, int power) {
 		Car car = null;
 		try {
 			car = new Car(registrationNumber, color, numberOfWheels, power);
@@ -193,7 +193,7 @@ public abstract class GarageHandler {
 		return car;
 	}
 
-	protected Boat createBoat(String registrationNumber, String color, int length, int lifeboats ) {
+	public Boat createBoat(String registrationNumber, String color, int length, int lifeboats ) {
 
 		Boat boat = null;
 		try {
@@ -212,7 +212,7 @@ public abstract class GarageHandler {
 		return boat;
 	}
 
-	protected Motorcycle createMotorcycle(String registrationNumber, String color, int cylinderVolume) {
+	public Motorcycle createMotorcycle(String registrationNumber, String color, int cylinderVolume) {
 		Motorcycle motorcycle = null;
 		try {
 			motorcycle = new Motorcycle(registrationNumber, color, cylinderVolume);
@@ -231,7 +231,7 @@ public abstract class GarageHandler {
 	}
 
 
-	protected Bus createBus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats) 
+	public Bus createBus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats) 
 	{
 
 		Bus bus = null;
@@ -249,6 +249,11 @@ public abstract class GarageHandler {
 			return null;
 		}
 		return bus;
+	}
+	
+	private void dummy()
+	{
+		
 	}
 
 }
