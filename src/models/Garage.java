@@ -64,15 +64,6 @@ public class Garage {
 		}
 		catch (ColorNotFoundException e) {
 			System.out.println("The color : " + color + " was not found \n Valid colors are: Black, White, Green, Red, Yellow");
-			if(color.equalsIgnoreCase("Black"))
-				this.color = color;
-			else if(color.equalsIgnoreCase("White"))
-				this.color = color;
-			else if(color.equalsIgnoreCase("Green"))
-				this.color = color;
-			else if(color.equalsIgnoreCase("Red"))
-				this.color = color;
-			else if(color.equalsIgnoreCase("Yellow"))
 		}
 	}
 
