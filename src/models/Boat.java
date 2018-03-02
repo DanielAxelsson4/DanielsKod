@@ -33,19 +33,19 @@ public class Boat extends Vehicle {
 
 
 	protected void setColor(String color) throws ColorNotFoundException{
-		if (color.equals("Black")) {
+		if (color.equalsIgnoreCase("Black")) {
 			this.color = color;
 		}
-		else if (color.equals("White") ) {
+		else if (color.equalsIgnoreCase("White") ) {
 			this.color = color;
 		}
-		else if (color.equals("Green") ) {
+		else if (color.equalsIgnoreCase("Green") ) {
 			this.color = color;
 		}
-		else if (color.equals("Red") ) {
+		else if (color.equalsIgnoreCase("Red") ) {
 			this.color = color;
 		}
-		else if (color.equals("Yellow") ) {
+		else if (color.equalsIgnoreCase("Yellow") ) {
 			this.color = color;
 		}
 		else {
@@ -57,7 +57,7 @@ public class Boat extends Vehicle {
 	public String toString() {
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("--------BOAT--------");
+		sb.append("-------- " + vehicleType + " ---------\n");
 		sb.append("Registration number is: ");
 		sb.append(this.registrationNumber);
 		sb.append("\n");

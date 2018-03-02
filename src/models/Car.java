@@ -2,9 +2,11 @@ package models;
 
 import utilities.VehicleType;
 
+
 public class Car extends Vehicle {
-	
+
 	private int power;
+
 
 	public int getPower() {
 		return power;
@@ -43,7 +45,7 @@ public class Car extends Vehicle {
 	public String toString() {
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("-------- Car ---------\n");
+		sb.append("-------- " + vehicleType + " ---------\n");
 		sb.append("registration number is: ");
 		sb.append(this.registrationNumber);
 		sb.append("\n");
@@ -58,4 +60,10 @@ public class Car extends Vehicle {
 
 		return sb.toString();
 	}
+
+
+
+
 }
+
+

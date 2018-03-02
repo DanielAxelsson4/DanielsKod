@@ -3,16 +3,16 @@ package models;
 import utilities.VehicleType;
 
 public class AirPlane extends Vehicle {
-	
+
 	private String airlineName;
-	
+
 	public AirPlane(String registrationNumber, int numberOfWheels, String airlineName) throws AirlineNameNotFoundException {
 		super(registrationNumber);
 		this.numberOfWheels = numberOfWheels;
 		this.vehicleType = VehicleType.AIRPLANE;
 		this.setAirlineName(airlineName);
 	}
-	
+
 	public void setAirlineName(String airlineName) throws AirlineNameNotFoundException
 	{
 		if(airlineName.equalsIgnoreCase("SAS")) {
@@ -21,21 +21,22 @@ public class AirPlane extends Vehicle {
 		}
 		else if(airlineName.equalsIgnoreCase("Alitalia")) {
 			this.color = "Green";
-			this.airlineName = airlineName;			
+			this.airlineName = airlineName;
 		}
 		else if(airlineName.equalsIgnoreCase("Berlin")) {
-			this.color = "Red";		
-			this.airlineName = airlineName;	
+			this.color = "Red";
+			this.airlineName = airlineName;
 		}
 
 		else
 			throw new AirlineNameNotFoundException();
 	}
-	
+
+	@Override
 	public String toString() {
 		System.out.println();
 		StringBuilder sb = new StringBuilder();
-		sb.append("-------- Airplane ---------\n");
+		sb.append("-------- " + vehicleType + " ---------\n");
 		sb.append("registration number is: ");
 		sb.append(this.registrationNumber);
 		sb.append("\n");
@@ -47,7 +48,7 @@ public class AirPlane extends Vehicle {
 		sb.append("\n");
 		sb.append("airplane name is: ");
 		sb.append(this.getAirlineName().toUpperCase());
-		
+
 		return sb.toString();
 	}
 

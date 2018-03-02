@@ -7,7 +7,7 @@ public class Motorcycle extends Vehicle {
 
 	private int cylinderVolume;
 
-	public Motorcycle(String registrationNumber, String color, int numberOfWheels, int cylinderVolume) throws ColorNotFoundException {
+	public Motorcycle(String registrationNumber, String color, int cylinderVolume) throws ColorNotFoundException {
 		super(registrationNumber);
 		this.SetColor(color);
 		this.numberOfWheels = 2;
@@ -17,15 +17,15 @@ public class Motorcycle extends Vehicle {
 
 	protected void SetColor(String color) throws ColorNotFoundException
 	{
-		if(color.equals("Black"))
+		if(color.equalsIgnoreCase("Black"))
 			this.color = color;
-		else if(color.equals("White"))
+		else if(color.equalsIgnoreCase("White"))
 			this.color = color;
-		else if(color.equals("Green"))
+		else if(color.equalsIgnoreCase("Green"))
 			this.color = color;
-		else if(color.equals("Red"))
+		else if(color.equalsIgnoreCase("Red"))
 			this.color = color;
-		else if(color.equals("Yellow"))
+		else if(color.equalsIgnoreCase("Yellow"))
 			this.color = color;
 		else
 			throw new ColorNotFoundException();
@@ -50,7 +50,7 @@ public class Motorcycle extends Vehicle {
 	public String toString() {
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("--------MOTORCYCLE--------");
+		sb.append("-------- " + vehicleType + " ---------\n");
 		sb.append("Registration number is: ");
 		sb.append(this.registrationNumber);
 		sb.append("\n");
