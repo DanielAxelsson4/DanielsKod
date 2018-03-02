@@ -22,7 +22,7 @@ public class Garage {
 
 
 
-	public Garage() {
+	protected Garage() {
 		garageMap = new TreeMap<String, Vehicle>();
 	}
 
