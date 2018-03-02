@@ -8,12 +8,12 @@ public class Bus extends Vehicle {
 
 	private int numberOfSeats;
 
-	public Bus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats) throws ColorNotFoundException {
+	public Bus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats) throws ColorNotFoundException, BusNotFoundException {
 		super(registrationNumber);
 		this.setColor(color);
 		this.numberOfWheels = numberOfWheels;
 		this.vehicleType = VehicleType.BUS;
-		this.numberOfSeats = numberOfSeats;
+		this.setNumberOfSeats(numberOfSeats);
 
 	}
 
@@ -24,8 +24,12 @@ public class Bus extends Vehicle {
 	}
 
 
-	public void setNumberOfSeats(int numberOfSeats) {
-		this.numberOfSeats = numberOfSeats;
+	public void setNumberOfSeats(int numberOfSeats) throws BusNotFoundException 
+	{
+		if(numberOfSeats > 0)
+			this.numberOfSeats = numberOfSeats;
+		else
+			throw new BusNotFoundException();
 	}
 
 
@@ -33,16 +37,16 @@ public class Bus extends Vehicle {
 		if (color.equals("Black")) {
 			this.color = color;
 		}
-		else if (color.equals("White") ) {
+		else if (color.equalsIgnoreCase("White") ) {
 			this.color = color;
 		}
-		else if (color.equals("Green") ) {
+		else if (color.equalsIgnoreCase("Green") ) {
 			this.color = color;
 		}
-		else if (color.equals("Red") ) {
+		else if (color.equalsIgnoreCase("Red") ) {
 			this.color = color;
 		}
-		else if (color.equals("Yellow") ) {
+		else if (color.equalsIgnoreCase("Yellow") ) {
 			this.color = color;
 		}
 		else {
@@ -55,7 +59,7 @@ public class Bus extends Vehicle {
 	public String toString() {
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("--------BUS--------");
+		sb.append("-------- " + vehicleType + " ---------\n");
 		sb.append("Registration number is: ");
 		sb.append(this.registrationNumber);
 		sb.append("\n");

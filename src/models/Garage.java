@@ -1,6 +1,7 @@
 
 package models;
 
+<<<<<<< HEAD
 import java.util.TreeMap;
 
 import javax.swing.JOptionPane;
@@ -17,17 +18,45 @@ public class Garage {
 	private Integer power = null;
 	private String airlineName = null;
 
+=======
+import java.util.TreeMap;
+
+import utilities.GarageType;
+
+public abstract class Garage {
+
+	protected String garageName;
+	protected GarageType garageType;
+//	protected String registrationNumber = null;
+//	protected String color = null;
+//	protected Integer numberOfWheels = null;
+//	protected int cylinderVolume = 0;
+//	protected int numberOfSeats = 0;
+//	protected int lifeboats = 0;
+//	protected int length = 0;
+//	protected Integer power = null;
+//	protected String airlineName = null;
+>>>>>>> 4ac3e0b4205f8299447a167cd594f3013e2da050
 
 	public static TreeMap<String, Vehicle> garageMap;
 	
 
+	protected TreeMap<String, Vehicle> garageMap;
 
-	public Garage() {
+	
+	public TreeMap<String, Vehicle> getGarageMap() {
+		return garageMap;
+	}
+
+	public Garage(String garageName) {
+		super();
+		this.garageName = garageName;
 		garageMap = new TreeMap<String, Vehicle>();
 	}
 
-	public static TreeMap<String,Vehicle> getVehicleMap() {
+	protected TreeMap<String,Vehicle> getVehicleMap() {
 		return garageMap;
+<<<<<<< HEAD
 	}
 
 	public void addVehicle(Vehicle newVehicle ) {
@@ -37,28 +66,47 @@ public class Garage {
 		
 	}
 
+=======
+	}
+>>>>>>> 4ac3e0b4205f8299447a167cd594f3013e2da050
 
+	public void addVehicle(String registragtionNumber, Vehicle newVehicle ) {
+		garageMap.put(newVehicle.getRegistrationNumber(), newVehicle);
 
-	public void listVehicles(TreeMap<String,Vehicle> garageMap) {
+	}
+	
+	protected void listVehicles(TreeMap<String,Vehicle> garageMap) {
 
 		for (Vehicle nextVehicle : garageMap.values() ) {
 			System.out.println(nextVehicle.toString() );
 		}
 	}
 
-	public void deleteVehicle(Vehicle newVehicle ) {
+	public void removeVehicle(Vehicle newVehicle ) {
 		if (garageMap.containsKey(newVehicle.getRegistrationNumber())){
 			garageMap.remove(newVehicle.getRegistrationNumber());
 		}
 	}
 
-
-	public void printVehicles(TreeMap<String,Vehicle> garageMap) {
-		for (Vehicle nextVehicle : garageMap.values() ) {
-			System.out.println(nextVehicle.toString());
-		}
+	protected int getNumberOfVehicles() {
+		return garageMap.size();
 	}
 
+	public Vehicle findVehicle(String registerNumber) throws VehicleNotFoundException
+	{
+		for(Vehicle vehicle : garageMap.values())
+		{
+			if(vehicle.getRegistrationNumber().equalsIgnoreCase(registerNumber))
+			{
+				return vehicle;
+			}
+			else
+				throw new VehicleNotFoundException();
+		}
+		return null;
+	}
+
+<<<<<<< HEAD
 	public int getNumberOfVehicles() {
 		return garageMap.size();
 	}
@@ -164,6 +212,22 @@ public class Garage {
 
 
 
+=======
+	public String getGarageName() {
+		return garageName;
+	}
+	
+	
+
+
+
+
+
+
+
+
+
+>>>>>>> 4ac3e0b4205f8299447a167cd594f3013e2da050
 }
 
 

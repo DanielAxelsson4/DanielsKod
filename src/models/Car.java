@@ -4,15 +4,25 @@ import utilities.VehicleType;
 
 
 public class Car extends Vehicle {
-	
+
 	private int power;
+<<<<<<< HEAD
 	
 
 	public int getPower() {
 		return power;
+=======
+
+
+	public int getPower() throws CarNotFoundException{
+		if( this.power > 0)
+			return power;
+		else
+			throw new CarNotFoundException();
+>>>>>>> 4ac3e0b4205f8299447a167cd594f3013e2da050
 	}
 
-	public Car(String registrationNumber, String color, int numberOfWheels, int power) throws ColorNotFoundException {
+	public Car(String registrationNumber, String color, int numberOfWheels, int power) throws ColorNotFoundException, CarNotFoundException {
 		super(registrationNumber);
 		this.SetColor(color);
 		this.numberOfWheels = numberOfWheels;
@@ -45,7 +55,7 @@ public class Car extends Vehicle {
 	public String toString() {
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("-------- Car ---------\n");
+		sb.append("-------- " + vehicleType + " ---------\n");
 		sb.append("registration number is: ");
 		sb.append(this.registrationNumber);
 		sb.append("\n");
@@ -60,6 +70,7 @@ public class Car extends Vehicle {
 
 		return sb.toString();
 	}
+<<<<<<< HEAD
 	
 
 		
@@ -67,3 +78,13 @@ public class Car extends Vehicle {
 	}
 	
 
+=======
+
+	
+
+
+
+}
+
+
+>>>>>>> 4ac3e0b4205f8299447a167cd594f3013e2da050
