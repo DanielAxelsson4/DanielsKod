@@ -32,8 +32,8 @@ import com.github.DanielAxelsson4.Garage.Models.Vehicle;
 
 public abstract class GarageHandler {
 
-	static Garage garage;
-	protected Garage apg;
+	protected Garage garage;
+	//protected Garage apg;
 	private ConcurrentSkipListMap<String, Garage> garageList = new ConcurrentSkipListMap<String, Garage>(String.CASE_INSENSITIVE_ORDER);
 	protected Vehicle vehicle;
 	private boolean exists;
@@ -51,8 +51,8 @@ public abstract class GarageHandler {
 	 */
 	public Garage createGarage(String garageName, int capacity)
 	{
-		apg = new Garage(garageName, capacity);
-		return apg;
+		garage = new Garage(garageName, capacity);
+		return garage;
 	}
 	/**
 	 * Adds the garage to the collection
