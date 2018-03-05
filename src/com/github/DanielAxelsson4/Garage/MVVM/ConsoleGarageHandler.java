@@ -60,11 +60,12 @@ public class ConsoleGarageHandler extends GarageHandler {
 
 	public void addGarage() throws GarageAlreadyExistsException, GarageNotFoundException, GarageIsFullException, VehicleNotFoundException
 	{
-		garageName = JOptionPane.showInputDialog("What's the name of your garage?");
-		capacity = Integer.parseInt(JOptionPane.showInputDialog("What is the maximum amount of vehicles that can be parked here?")) - 1;
+
 
 		try
 		{
+			garageName = JOptionPane.showInputDialog("What's the name of your garage?");
+			capacity = Integer.parseInt(JOptionPane.showInputDialog("What is the maximum amount of vehicles that can be parked here?")) - 1;
 			if (garageName == null || capacity < 0) {
 				throw new NumberFormatException();
 			}
