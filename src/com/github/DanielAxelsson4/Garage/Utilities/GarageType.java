@@ -2,8 +2,8 @@ package com.github.DanielAxelsson4.Garage.Utilities;
 
 /**
  * 
- * @author Daniel Axelsson and tempName
- * Class description: Main class for executing the Garage application.
+ * @author Daniel Axelsson and Sohrab Azami
+ * Class description: Enumeration of GarageType
  *
  */
 
