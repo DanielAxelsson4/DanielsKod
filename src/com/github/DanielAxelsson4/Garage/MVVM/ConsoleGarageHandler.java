@@ -65,10 +65,11 @@ public class ConsoleGarageHandler extends GarageHandler {
 		Garage garage = super.createGarage(garageName, capacity);
 		try
 		{
-			super.addGarage(garageName, garage);
 			if (garageName == null || capacity < 0) {
 				throw new NumberFormatException();
 			}
+			super.addGarage(garageName, garage);
+
 		}
 		catch(GarageAlreadyExistsException e)
 		{
@@ -92,11 +93,19 @@ public class ConsoleGarageHandler extends GarageHandler {
 		try
 		{
 			garageName = JOptionPane.showInputDialog("What's the name of the garage you want to remove?");
+			if (garageName == null || capacity < 0) {
+				throw new NumberFormatException();
+			}
 			super.removeGarage(garageName);
 		}
 		catch(GarageNotFoundException e)
 		{
 			System.out.println("\n" +  "The garage was not found \n");
+			Main.callGarageMenu();
+		}
+		catch(NumberFormatException e)
+		{
+			System.out.println("Please input a correct value");
 			Main.callGarageMenu();
 		}
 	}
