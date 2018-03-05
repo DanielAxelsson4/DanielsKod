@@ -62,12 +62,13 @@ public class ConsoleGarageHandler extends GarageHandler {
 	{
 		garageName = JOptionPane.showInputDialog("What's the name of your garage?");
 		capacity = Integer.parseInt(JOptionPane.showInputDialog("What is the maximum amount of vehicles that can be parked here?")) - 1;
-		Garage garage = super.createGarage(garageName, capacity);
+
 		try
 		{
 			if (garageName == null || capacity < 0) {
 				throw new NumberFormatException();
 			}
+			Garage garage = super.createGarage(garageName, capacity);
 			super.addGarage(garageName, garage);
 
 		}
