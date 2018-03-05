@@ -11,7 +11,7 @@ import com.github.DanielAxelsson4.Garage.MVVM.ConsoleGarageHandler;
 
 /**
  * 
- * @author Daniel Axelsson and tempName
+ * @author Daniel Axelsson and Sohrab Azami
  * Class description: Main class for executing the Garage application.
  *
  */
