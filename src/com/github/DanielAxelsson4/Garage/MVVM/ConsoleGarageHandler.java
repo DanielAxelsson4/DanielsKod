@@ -53,9 +53,12 @@ public class ConsoleGarageHandler extends GarageHandler {
 	/**
 	 * Prompts the user for inputs and adds a garage
 	 * @throws GarageAlreadyExistsException Garage already exists
+	 * @throws VehicleNotFoundException
+	 * @throws GarageIsFullException
+	 * @throws GarageNotFoundException
 	 */
 
-	public void addGarage() throws GarageAlreadyExistsException
+	public void addGarage() throws GarageAlreadyExistsException, GarageNotFoundException, GarageIsFullException, VehicleNotFoundException
 	{
 		garageName = JOptionPane.showInputDialog("What's the name of your garage?");
 		capacity = Integer.parseInt(JOptionPane.showInputDialog("What is the maximum amount of vehicles that can be parked here?")) - 1;
@@ -63,10 +66,18 @@ public class ConsoleGarageHandler extends GarageHandler {
 		try
 		{
 			super.addGarage(garageName, garage);
+			if (garageName == null || capacity < 0) {
+				throw new NumberFormatException();
+			}
 		}
 		catch(GarageAlreadyExistsException e)
 		{
 			System.out.println("Garage already exists");
+		}
+		catch(NumberFormatException e)
+		{
+			System.out.println("Please input a correct value");
+			Main.callGarageMenu();
 		}
 	}
 	/**

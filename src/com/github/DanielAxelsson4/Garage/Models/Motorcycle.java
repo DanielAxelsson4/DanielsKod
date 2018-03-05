@@ -79,7 +79,7 @@ public class Motorcycle extends Vehicle {
 	}
 	public String getParkedGarage()
 	{
-		return this.color;
+		return this.parkedGarage;
 	}
 
 
