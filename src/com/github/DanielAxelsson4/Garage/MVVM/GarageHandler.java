@@ -2,6 +2,7 @@ package com.github.DanielAxelsson4.Garage.MVVM;
 
 
 import java.util.concurrent.ConcurrentSkipListMap;
+
 import com.github.DanielAxelsson4.Garage.Exceptions.AirlineNameNotFoundException;
 import com.github.DanielAxelsson4.Garage.Exceptions.AirplaneNotFoundException;
 import com.github.DanielAxelsson4.Garage.Exceptions.BoatNotFoundException;
@@ -22,7 +23,7 @@ import com.github.DanielAxelsson4.Garage.Models.Motorcycle;
 import com.github.DanielAxelsson4.Garage.Models.Vehicle;
 
 /**
- * 
+ *
  * @author Daniel Axelsson and Sohrab Azami
  * Class description: GarageHandler class
  *
@@ -37,12 +38,11 @@ public abstract class GarageHandler {
 	protected Vehicle vehicle;
 	private boolean exists;
 
-	public GarageHandler() 
+	public GarageHandler()
 	{
 		super();
-		this.garageList = new ConcurrentSkipListMap<String, Garage>();
+		this.garageList = new ConcurrentSkipListMap<String, Garage>(String.CASE_INSENSITIVE_ORDER);
 	}
-
 	/**
 	 * Creates and returns a garage
 	 * @param garageName Name of garage
@@ -80,7 +80,7 @@ public abstract class GarageHandler {
 	{
 		for(Garage garage : this.garageList.values())
 		{
-			if(garage.getGarageName().equalsIgnoreCase(garageName)) 
+			if(garage.getGarageName().equalsIgnoreCase(garageName))
 			{
 				garageList.remove(garageName);
 				System.out.println("Garage " + garageName + " was removed");
@@ -90,7 +90,7 @@ public abstract class GarageHandler {
 		throw new GarageNotFoundException();
 	}
 	/**
-	 * Lists all garages	
+	 * Lists all garages
 	 */
 	public void listGarages()
 	{
@@ -141,11 +141,11 @@ public abstract class GarageHandler {
 				return garage;
 			}
 		}
-		if (!this.garageList.containsKey(garageName)) 
+		if (!this.garageList.containsKey(garageName))
 		{
 			throw new GarageNotFoundException();
 		}
-		else 
+		else
 		{
 			throw new GarageIsFullException();
 		}
@@ -180,14 +180,14 @@ public abstract class GarageHandler {
 	 */
 	public void listAllVehicles()
 	{
-		// 
+		//
 		for(Garage garage : this.garageList.values())
 		{
 			garage.listVehicles(garage.getGarageMap());
 		}
 	}
 	/**
-	 * 
+	 *
 	 * @param registerNumber Specified registerNumber
 	 * @return vehicle Vehicle
 	 * @throws VehicleNotFoundException Vehicle was not found
@@ -211,13 +211,13 @@ public abstract class GarageHandler {
 		exists = false;
 		for(Garage garage : this.garageList.values())
 		{
-			if (garage.getGarageMap().containsKey(registerNumber)) 
+			if (garage.getGarageMap().containsKey(registerNumber))
 			{
 				exists = true;
 				garage.listSpecificVehicle(registerNumber);
 			}
 		}
-		if (!exists) 
+		if (!exists)
 		{
 			throw new VehicleNotFoundException();
 		}
@@ -232,13 +232,13 @@ public abstract class GarageHandler {
 		exists = false;
 		for(Garage garage : this.garageList.values())
 		{
-			if (garage.getGarageMap().containsKey(registerNumber)) 
+			if (garage.getGarageMap().containsKey(registerNumber))
 			{
 				exists = true;
 				garage.removeSpecificVehicle(registerNumber);
 			}
 		}
-		if (!exists) 
+		if (!exists)
 		{
 			throw new VehicleNotFoundException();
 		}
@@ -255,10 +255,10 @@ public abstract class GarageHandler {
 	 * @param parkedGarage Name of the garage the airplane is stored in
 	 * @return
 	 */
-	public AirPlane createAirplane(String registrationNumber, int numberOfWheels, String airlineName, String parkedGarage ) 
+	public AirPlane createAirplane(String registrationNumber, int numberOfWheels, String airlineName, String parkedGarage )
 	{
 		AirPlane airplane = null;
-		try 
+		try
 		{
 			airplane = new AirPlane(registrationNumber, numberOfWheels, airlineName, parkedGarage);
 		}
@@ -284,10 +284,10 @@ public abstract class GarageHandler {
 	 * @param parkedGarage Name of the garage the car is stored in
 	 * @return
 	 */
-	public Car createCar(String registrationNumber, int numberOfWheels, String color, int power, String parkedGarage) 
+	public Car createCar(String registrationNumber, int numberOfWheels, String color, int power, String parkedGarage)
 	{
 		Car car = null;
-		try 
+		try
 		{
 			car = new Car(registrationNumber, color, numberOfWheels, power, parkedGarage);
 		}
@@ -311,10 +311,10 @@ public abstract class GarageHandler {
 	 * @param parkedGarage Name of the garage the boat is stored in
 	 * @return
 	 */
-	public Boat createBoat(String registrationNumber, String color, int length, int lifeboats, String parkedGarage ) 
+	public Boat createBoat(String registrationNumber, String color, int length, int lifeboats, String parkedGarage )
 	{
 		Boat boat = null;
-		try 
+		try
 		{
 			boat = new Boat(registrationNumber, color, length, lifeboats, parkedGarage);
 		}
@@ -338,10 +338,10 @@ public abstract class GarageHandler {
 	 * @param parkedGarage Name of the garage the motorcycle is stored in
 	 * @return
 	 */
-	public Motorcycle createMotorcycle(String registrationNumber, String color, int cylinderVolume, String parkedGarage) 
+	public Motorcycle createMotorcycle(String registrationNumber, String color, int cylinderVolume, String parkedGarage)
 	{
 		Motorcycle motorcycle = null;
-		try 
+		try
 		{
 			motorcycle = new Motorcycle(registrationNumber, color, cylinderVolume, parkedGarage);
 		}
@@ -367,10 +367,10 @@ public abstract class GarageHandler {
 	 * @param parkedGarage Name of the garage the bus is stored in
 	 * @return
 	 */
-	public Bus createBus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats, String parkedGarage) 
+	public Bus createBus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats, String parkedGarage)
 	{
 		Bus bus = null;
-		try 
+		try
 		{
 			bus = new Bus(registrationNumber, color, numberOfWheels, numberOfSeats, parkedGarage);
 		}
