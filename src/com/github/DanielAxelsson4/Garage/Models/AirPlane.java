@@ -1,9 +1,9 @@
 package com.github.DanielAxelsson4.Garage.Models;
 
 /**
- * 
- * @author Daniel Axelsson and Sohrab Azami
  * Class description: Airplane class
+ * @author Daniel Axelsson and Sohrab Azami
+ *
  *
  */
 
@@ -66,10 +66,10 @@ public class AirPlane extends Vehicle {
 	}
 
 	public String getparkedGarage() {
-		
+
 		return parkedGarage;
 	}
-	
+
 	public String getAirlineName() {
 		return airlineName;
 	}

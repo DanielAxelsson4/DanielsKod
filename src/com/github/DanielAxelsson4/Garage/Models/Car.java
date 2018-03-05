@@ -5,9 +5,9 @@ import com.github.DanielAxelsson4.Garage.Exceptions.ColorNotFoundException;
 import com.github.DanielAxelsson4.Garage.Utilities.VehicleType;
 
 /**
- * 
- * @author Daniel Axelsson and Sohrab Azami
  * Class description: Car Class
+ * @author Daniel Axelsson and Sohrab Azami
+ *
  *
  */
 
@@ -84,7 +84,7 @@ public class Car extends Vehicle {
 	{
 		return this.color;
 	}
-	
+
 	public String getParkedGarage()
 	{
 		return parkedGarage;

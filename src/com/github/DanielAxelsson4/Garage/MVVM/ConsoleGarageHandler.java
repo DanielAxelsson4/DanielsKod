@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import com.github.DanielAxelsson4.Garage.Exceptions.GarageAlreadyExistsException;
 import com.github.DanielAxelsson4.Garage.Exceptions.GarageIsFullException;
 import com.github.DanielAxelsson4.Garage.Exceptions.GarageNotFoundException;
+import com.github.DanielAxelsson4.Garage.Exceptions.IllegalNumberException;
 import com.github.DanielAxelsson4.Garage.Exceptions.VehicleNotFoundException;
 import com.github.DanielAxelsson4.Garage.Models.AirPlane;
 import com.github.DanielAxelsson4.Garage.Models.Boat;
@@ -17,9 +18,9 @@ import com.github.DanielAxelsson4.Garage.UI.Main;
 import com.github.DanielAxelsson4.Garage.Utilities.GarageType;
 
 /**
- * 
- * @author Daniel Axelsson and Sohrab Azami
  * Class description: Console GarageHandler class
+ * @author Daniel Axelsson and Sohrab Azami
+ *
  *
  */
 
@@ -54,16 +55,16 @@ public class ConsoleGarageHandler extends GarageHandler {
 	 * @throws GarageAlreadyExistsException Garage already exists
 	 */
 
-	public void addGarage() throws GarageAlreadyExistsException 
+	public void addGarage() throws GarageAlreadyExistsException
 	{
 		garageName = JOptionPane.showInputDialog("What's the name of your garage?");
 		capacity = Integer.parseInt(JOptionPane.showInputDialog("What is the maximum amount of vehicles that can be parked here?")) - 1;
 		Garage garage = super.createGarage(garageName, capacity);
-		try 
+		try
 		{
 			super.addGarage(garageName, garage);
 		}
-		catch(GarageAlreadyExistsException e) 
+		catch(GarageAlreadyExistsException e)
 		{
 			System.out.println("Garage already exists");
 		}
@@ -75,14 +76,14 @@ public class ConsoleGarageHandler extends GarageHandler {
 	 * @throws GarageIsFullException Garage is full
 	 * @throws GarageAlreadyExistsException Garage already exists
 	 */
-	public void removeGarage() throws GarageNotFoundException, GarageAlreadyExistsException, GarageIsFullException, VehicleNotFoundException 
+	public void removeGarage() throws GarageNotFoundException, GarageAlreadyExistsException, GarageIsFullException, VehicleNotFoundException
 	{
-		try 
+		try
 		{
 			garageName = JOptionPane.showInputDialog("What's the name of the garage you want to remove?");
 			super.removeGarage(garageName);
 		}
-		catch(GarageNotFoundException e) 
+		catch(GarageNotFoundException e)
 		{
 			System.out.println("\n" +  "The garage was not found \n");
 			Main.callGarageMenu();
@@ -91,10 +92,10 @@ public class ConsoleGarageHandler extends GarageHandler {
 	/**
 	 * Lists all garages
 	 */
-	public void listGarage() 
+	public void listGarage()
 	{
 		System.out.println("\n" +  "Now viewing all garages: \n ");
-		super.listGarages();	
+		super.listGarages();
 	}
 	/**
 	 * Prompts the user for inputs and lists all vehicles in specified garage
@@ -103,7 +104,7 @@ public class ConsoleGarageHandler extends GarageHandler {
 	 * @throws GarageIsFullException Garage is full
 	 * @throws GarageAlreadyExistsException Garage already exists
 	 */
-	public void listVehicles() throws GarageNotFoundException, GarageAlreadyExistsException, GarageIsFullException, VehicleNotFoundException 
+	public void listVehicles() throws GarageNotFoundException, GarageAlreadyExistsException, GarageIsFullException, VehicleNotFoundException
 	{
 		try {
 			garageName = JOptionPane.showInputDialog("\n" + "What is the name of the garage you would you like to view?");
@@ -120,7 +121,8 @@ public class ConsoleGarageHandler extends GarageHandler {
 	/**
 	 * Lists all parked vehicles in all garages
 	 */
-	public void listAllVehicles() 
+	@Override
+	public void listAllVehicles()
 	{
 		System.out.println("\n" + "Now viewing all parked vehicles: \n");
 		super.listAllVehicles();
@@ -132,14 +134,14 @@ public class ConsoleGarageHandler extends GarageHandler {
 	 * @throws GarageAlreadyExistsException Garage already exists
 	 * @throws GarageIsFullException Garage is full
 	 */
-	public void listSpecificVehicle() throws GarageNotFoundException, VehicleNotFoundException, GarageAlreadyExistsException, GarageIsFullException 
+	public void listSpecificVehicle() throws GarageNotFoundException, VehicleNotFoundException, GarageAlreadyExistsException, GarageIsFullException
 	{
-		try 
+		try
 		{
 			registrationNumber = JOptionPane.showInputDialog("What's the registrationnumber of the vehicle you would like to find?");
 			super.listSpecificVehicle(registrationNumber);
 		}
-		catch(VehicleNotFoundException e) 
+		catch(VehicleNotFoundException e)
 		{
 			System.out.println("\n" + "Vehicle not found! \n");
 			Main.callVehicleMenu();
@@ -152,14 +154,14 @@ public class ConsoleGarageHandler extends GarageHandler {
 	 * @throws GarageIsFullException Garage is full
 	 * @throws VehicleNotFoundException Vehicle was not found
 	 */
-	public void removeSpecificVehicle() throws GarageAlreadyExistsException, GarageNotFoundException, GarageIsFullException, VehicleNotFoundException 
+	public void removeSpecificVehicle() throws GarageAlreadyExistsException, GarageNotFoundException, GarageIsFullException, VehicleNotFoundException
 	{
-		try 
+		try
 		{
 			registrationNumber = JOptionPane.showInputDialog("What's the registrationnumber of the vehicle you would like to unpark?");
 			super.removeSpecificVehicle(registrationNumber);
 		}
-		catch(VehicleNotFoundException e) 
+		catch(VehicleNotFoundException e)
 		{
 			System.out.println("\n" + "Vehicle is not parked \n");
 			Main.callParkMenu();
@@ -172,9 +174,10 @@ public class ConsoleGarageHandler extends GarageHandler {
 	 * @throws GarageIsFullException Garage is full
 	 * @throws GarageAlreadyExistsException Garage already exists
 	 * @throws VehicleNotFoundException Vehicle was not found
+	 * @throws IllegalNumberException
 	 */
 
-	public void createCar() throws GarageNotFoundException, GarageIsFullException, GarageAlreadyExistsException, VehicleNotFoundException 
+	public void createCar() throws GarageNotFoundException, GarageIsFullException, GarageAlreadyExistsException, VehicleNotFoundException
 	{
 		try {
 			registrationNumber = JOptionPane.showInputDialog("What's the registrationnumber of the car?");
@@ -185,27 +188,35 @@ public class ConsoleGarageHandler extends GarageHandler {
 			if(registrationNumber == null || color == null || power == null || garageName == null) {
 				throw new NullPointerException();
 			}
+			if(numberOfWheels <= 0 || power <= 0 ) {
+				throw new IllegalNumberException();
+			}
 			car = super.createCar(registrationNumber, numberOfWheels, color, power, garageName);
 			super.addVehicle(car, garageName);
 		}
-		catch(NumberFormatException e) 
+		catch(NumberFormatException e)
 		{
 			System.out.println("Please input a correct value");
 			Main.callParkMenu();
 		}
-		catch (GarageIsFullException e) 
+		catch (GarageIsFullException e)
 		{
 			System.out.println("\n" +  "The garage is full \n ");
 			Main.callParkMenu();
 		}
-		catch (NullPointerException e) 
+		catch (NullPointerException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
 			Main.callParkMenu();
 		}
-		catch (GarageNotFoundException e) 
+		catch (GarageNotFoundException e)
 		{
 			System.out.println("\n" + "Garage was not found \n");
+			Main.callParkMenu();
+		}
+		catch (IllegalNumberException e)
+		{
+			System.out.println("\n" + "Number must be above 0 \n");
 			Main.callParkMenu();
 		}
 	}
@@ -225,27 +236,35 @@ public class ConsoleGarageHandler extends GarageHandler {
 			if(registrationNumber == null || color == null || garageName == null) {
 				throw new NullPointerException();
 			}
+			if(cylinderVolume <= 0) {
+				throw new IllegalNumberException();
+			}
 			motorcycle = super.createMotorcycle(registrationNumber, color, cylinderVolume, garageName);
 			super.addVehicle(motorcycle, garageName);
 		}
-		catch(NumberFormatException e) 
+		catch(NumberFormatException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
 			Main.callParkMenu();
 		}
-		catch (GarageIsFullException e) 
+		catch (GarageIsFullException e)
 		{
 			System.out.println("\n" +  "The garage is full \n ");
 			Main.callParkMenu();
 		}
-		catch (NullPointerException e) 
+		catch (NullPointerException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
 			Main.callParkMenu();
 		}
-		catch (GarageNotFoundException e) 
+		catch (GarageNotFoundException e)
 		{
 			System.out.println("\n" + "Garage was not found \n");
+			Main.callParkMenu();
+		}
+		catch (IllegalNumberException e)
+		{
+			System.out.println("\n" + "Number must be above 0 \n");
 			Main.callParkMenu();
 		}
 	}
@@ -256,7 +275,7 @@ public class ConsoleGarageHandler extends GarageHandler {
 	 * @throws GarageAlreadyExistsException Garage already exists
 	 * @throws VehicleNotFoundException Vehicle was not found
 	 */
-	public void createBus() throws GarageNotFoundException, GarageIsFullException, GarageAlreadyExistsException, VehicleNotFoundException 
+	public void createBus() throws GarageNotFoundException, GarageIsFullException, GarageAlreadyExistsException, VehicleNotFoundException
 	{
 		try {
 			registrationNumber = JOptionPane.showInputDialog("What's the registrationnumber of the bus?");
@@ -264,31 +283,40 @@ public class ConsoleGarageHandler extends GarageHandler {
 			color = JOptionPane.showInputDialog("What color does the bus have?");
 			numberOfSeats = Integer.parseInt(JOptionPane.showInputDialog("How many seats does the bus have?"));
 			garageName = JOptionPane.showInputDialog("In what garage would you like to park the bus?");
-			if(registrationNumber == null || color == null || garageName == null) 
+			if(registrationNumber == null || color == null || garageName == null)
 			{
 				throw new NullPointerException();
+			}
+			if(numberOfWheels <= 0 || numberOfSeats <= 0)
+			{
+				throw new IllegalNumberException();
 			}
 			bus = super.createBus(registrationNumber, color, numberOfWheels, numberOfSeats, garageName);
 			super.addVehicle(bus, garageName);
 		}
-		catch(NumberFormatException e) 
+		catch(NumberFormatException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
 			Main.callParkMenu();
 		}
-		catch (GarageIsFullException e) 
+		catch (GarageIsFullException e)
 		{
 			System.out.println("\n" +  "The garage is full \n ");
 			Main.callParkMenu();
 		}
-		catch (NullPointerException e) 
+		catch (NullPointerException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
 			Main.callParkMenu();
 		}
-		catch (GarageNotFoundException e) 
+		catch (GarageNotFoundException e)
 		{
 			System.out.println("\n" + "Garage was not found \n");
+			Main.callParkMenu();
+		}
+		catch (IllegalNumberException e)
+		{
+			System.out.println("\n" + "Number must be above 0 \n");
 			Main.callParkMenu();
 		}
 	}
@@ -299,38 +327,47 @@ public class ConsoleGarageHandler extends GarageHandler {
 	 * @throws GarageAlreadyExistsException Garage already exists
 	 * @throws VehicleNotFoundException Vehicle was not found
 	 */
-	public void createAirplane() throws GarageNotFoundException, GarageIsFullException, GarageAlreadyExistsException, VehicleNotFoundException 
+	public void createAirplane() throws GarageNotFoundException, GarageIsFullException, GarageAlreadyExistsException, VehicleNotFoundException
 	{
 		try {
 			registrationNumber = JOptionPane.showInputDialog("What's the registrationnumber of the airplane?");
 			numberOfWheels = Integer.parseInt(JOptionPane.showInputDialog("How many wheels does the airplane have?"));
 			airlineName = JOptionPane.showInputDialog("What is the airline name of the airplane?");
 			garageName = JOptionPane.showInputDialog("In what garage would you like to park the airplane?");
-			if(registrationNumber == null || airlineName == null || garageName == null) 
+			if(registrationNumber == null || airlineName == null || garageName == null)
 			{
 				throw new NullPointerException();
+			}
+			if(numberOfWheels <= 0)
+			{
+				throw new IllegalNumberException();
 			}
 			airplane = super.createAirplane(registrationNumber, numberOfWheels, airlineName, garageName);
 			super.addVehicle(airplane, garageName);
 		}
-		catch(NumberFormatException e) 
+		catch(NumberFormatException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
 			Main.callParkMenu();
 		}
-		catch (GarageIsFullException e) 
+		catch (GarageIsFullException e)
 		{
 			System.out.println("\n" +  "The garage is full \n ");
 			Main.callParkMenu();
 		}
-		catch (NullPointerException e) 
+		catch (NullPointerException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
 			Main.callParkMenu();
 		}
-		catch (GarageNotFoundException e) 
+		catch (GarageNotFoundException e)
 		{
 			System.out.println("\n" + "Garage was not found \n");
+			Main.callParkMenu();
+		}
+		catch (IllegalNumberException e)
+		{
+			System.out.println("\n" + "Number must be above 0 \n");
 			Main.callParkMenu();
 		}
 	}
@@ -341,7 +378,7 @@ public class ConsoleGarageHandler extends GarageHandler {
 	 * @throws GarageAlreadyExistsException Garage already exists
 	 * @throws VehicleNotFoundException Vehicle was not found
 	 */
-	public void createBoat() throws GarageNotFoundException, GarageIsFullException, GarageAlreadyExistsException, VehicleNotFoundException 
+	public void createBoat() throws GarageNotFoundException, GarageIsFullException, GarageAlreadyExistsException, VehicleNotFoundException
 	{
 		try {
 			registrationNumber = JOptionPane.showInputDialog("What's the registrationnumber of the boat?");
@@ -349,31 +386,40 @@ public class ConsoleGarageHandler extends GarageHandler {
 			length = Integer.parseInt(JOptionPane.showInputDialog("What is the length of the boat in metres?"));
 			lifeboats = Integer.parseInt(JOptionPane.showInputDialog("How many lifeboats does the boat have?"));
 			garageName = JOptionPane.showInputDialog("In what garage would you like to park the boat?");
-			if(registrationNumber == null || color == null || garageName == null) 
+			if(registrationNumber == null || color == null || garageName == null)
 			{
 				throw new NullPointerException();
+			}
+			if(length <= 0 || lifeboats <= 0)
+			{
+				throw new IllegalNumberException();
 			}
 			boat = super.createBoat(registrationNumber, color, length, lifeboats, garageName);
 			super.addVehicle(boat, garageName);
 		}
-		catch(NumberFormatException e) 
+		catch(NumberFormatException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
 			Main.callParkMenu();
 		}
-		catch (GarageIsFullException e) 
+		catch (GarageIsFullException e)
 		{
 			System.out.println("\n" +  "The garage is full \n ");
 			Main.callParkMenu();
 		}
-		catch (NullPointerException e) 
+		catch (NullPointerException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
 			Main.callParkMenu();
 		}
-		catch (GarageNotFoundException e) 
+		catch (GarageNotFoundException e)
 		{
 			System.out.println("\n" + "Garage was not found \n");
+			Main.callParkMenu();
+		}
+		catch (IllegalNumberException e)
+		{
+			System.out.println("\n" + "Number must be above 0 \n");
 			Main.callParkMenu();
 		}
 	}

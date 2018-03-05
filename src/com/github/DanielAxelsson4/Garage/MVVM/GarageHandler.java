@@ -23,9 +23,9 @@ import com.github.DanielAxelsson4.Garage.Models.Motorcycle;
 import com.github.DanielAxelsson4.Garage.Models.Vehicle;
 
 /**
- *
- * @author Daniel Axelsson and Sohrab Azami
  * Class description: GarageHandler class
+ * @author Daniel Axelsson and Sohrab Azami
+ *
  *
  */
 

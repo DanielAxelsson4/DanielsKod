@@ -10,9 +10,9 @@ import com.github.DanielAxelsson4.Garage.Exceptions.VehicleNotFoundException;
 import com.github.DanielAxelsson4.Garage.MVVM.ConsoleGarageHandler;
 
 /**
- *
- * @author Daniel Axelsson and Sohrab Azami
  * Class description: Main class for executing the Garage application.
+ * @author Daniel Axelsson and Sohrab Azami
+ *
  *
  */
 

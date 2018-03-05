@@ -1,9 +1,9 @@
 package com.github.DanielAxelsson4.Garage.Models;
 
 /**
- * 
- * @author Daniel Axelsson and Sohrab Azami
  * Class description: Boat class
+ * @author Daniel Axelsson and Sohrab Azami
+ *
  *
  */
 
@@ -113,7 +113,7 @@ public class Boat extends Vehicle {
 		sb.append("\n");
 		sb.append("Boat is currently parked in: ");
 		sb.append(getParkedGarage());
-		
+
 
 
 		return sb.toString();

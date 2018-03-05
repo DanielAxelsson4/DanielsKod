@@ -3,9 +3,9 @@
 package com.github.DanielAxelsson4.Garage.Models;
 
 /**
- * 
- * @author Daniel Axelsson and Sohrab Azami
  * Class description: Bus class
+ * @author Daniel Axelsson and Sohrab Azami
+ *
  *
  */
 
@@ -32,13 +32,13 @@ public class Bus extends Vehicle {
 	public int getNumberOfSeats() {
 		return numberOfSeats;
 	}
-	
+
 	public String getParkedGarage() {
 		return parkedGarage;
 	}
 
 
-	public void setNumberOfSeats(int numberOfSeats) throws BusNotFoundException 
+	public void setNumberOfSeats(int numberOfSeats) throws BusNotFoundException
 	{
 		if(numberOfSeats > 0)
 			this.numberOfSeats = numberOfSeats;

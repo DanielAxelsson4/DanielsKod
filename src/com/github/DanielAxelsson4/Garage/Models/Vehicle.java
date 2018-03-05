@@ -3,9 +3,9 @@ package com.github.DanielAxelsson4.Garage.Models;
 import com.github.DanielAxelsson4.Garage.Utilities.VehicleType;
 
 /**
- * 
- * @author Daniel Axelsson and Sohrab Azami
  * Class description: Vehicle class
+ * @author Daniel Axelsson and Sohrab Azami
+ *
  *
  */
 

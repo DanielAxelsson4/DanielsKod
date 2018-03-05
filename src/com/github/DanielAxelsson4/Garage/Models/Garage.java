@@ -6,9 +6,9 @@ import java.util.concurrent.ConcurrentSkipListMap;
 import com.github.DanielAxelsson4.Garage.Exceptions.VehicleNotFoundException;
 
 /**
- * 
- * @author Daniel Axelsson and Sohrab Azami
  * Class description: Garage class
+ * @author Daniel Axelsson and Sohrab Azami
+ *
  *
  */
 
@@ -22,7 +22,7 @@ public class Garage {
 
 
 
-	public Garage(String garageName, int capacity) 
+	public Garage(String garageName, int capacity)
 	{
 		this.garageName = garageName;
 		this.capacity = capacity;
@@ -33,7 +33,7 @@ public class Garage {
 	 * @param registragtionNumber Registration number of the vehicle
 	 * @param newVehicle Vehicle
 	 */
-	public void addVehicle(String registragtionNumber, Vehicle newVehicle ) 
+	public void addVehicle(String registragtionNumber, Vehicle newVehicle )
 	{
 		garageMap.put(newVehicle.getRegistrationNumber(), newVehicle);
 		System.out.println("\n" + "Vehicle parked! \n ");
@@ -43,7 +43,7 @@ public class Garage {
 	 * Removes the Vehicle from the collection
 	 * @param newVehicle Vehicle
 	 */
-	public void removeVehicle(Vehicle newVehicle ) 
+	public void removeVehicle(Vehicle newVehicle )
 	{
 		if (garageMap.containsKey(newVehicle.getRegistrationNumber())){
 			garageMap.remove(newVehicle.getRegistrationNumber());
@@ -53,7 +53,7 @@ public class Garage {
 	 * For each vehicle in the collection call its toString method which lists its properties
 	 * @param concurrentSkipListMap Collection of vehicles
 	 */
-	public void listVehicles(ConcurrentSkipListMap<String,Vehicle> concurrentSkipListMap) 
+	public void listVehicles(ConcurrentSkipListMap<String,Vehicle> concurrentSkipListMap)
 	{
 		for (Vehicle nextVehicle : concurrentSkipListMap.values() ) {
 			System.out.println(nextVehicle.toString() );
@@ -63,15 +63,15 @@ public class Garage {
 	 * See if a vehicle with the specified registerNumber exists in the collection and call it's toString method
 	 * @param registerNumber Registration number of the vehicle
 	 */
-	public void listSpecificVehicle(String registerNumber) 
+	public void listSpecificVehicle(String registerNumber)
 	{
 		if(garageMap.containsKey(registerNumber)) {
 			for (Vehicle nextVehicle : garageMap.values() ) {
-				if(nextVehicle.getRegistrationNumber().equals(registerNumber)) 
+				if(nextVehicle.getRegistrationNumber().equals(registerNumber))
 				{
 					exists = true;
 					System.out.println("\n" + "Vehicle Found! \n");
-					System.out.println(nextVehicle.toString() );	
+					System.out.println(nextVehicle.toString() );
 				}
 			}
 		}
@@ -83,10 +83,10 @@ public class Garage {
 	 * See if a vehicle with the specified registerNumber exists in the collection and remove it from the collection
 	 * @param registerNumber Registration number of the vehicle
 	 */
-	public void removeSpecificVehicle(String registerNumber) 
+	public void removeSpecificVehicle(String registerNumber)
 	{
 		for (Vehicle nextVehicle : garageMap.values() ) {
-			if(nextVehicle.getRegistrationNumber().equals(registerNumber)) 
+			if(nextVehicle.getRegistrationNumber().equals(registerNumber))
 			{
 				garageMap.remove(registerNumber);
 				System.out.println("\n" + "Vehicle removed! \n");
@@ -94,7 +94,7 @@ public class Garage {
 		}
 	}
 	/**
-	 * Go inside the collection and returns the vehicle with the specified registerNumber 
+	 * Go inside the collection and returns the vehicle with the specified registerNumber
 	 * @param registerNumber Registration number of the vehicle
 	 * @return vehicle Vehicle object
 	 * @throws VehicleNotFoundException Vehicle was not found
@@ -114,7 +114,7 @@ public class Garage {
 	}
 
 	@Override
-	public String toString() 
+	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("-------- " + "Garage" + " ---------\n");
@@ -129,17 +129,17 @@ public class Garage {
 		return sb.toString();
 	}
 
-	public String getGarageName() 
+	public String getGarageName()
 	{
 		return garageName;
 	}
 
-	public int getCapacity() 
+	public int getCapacity()
 	{
 		return capacity;
 	}
 
-	public ConcurrentSkipListMap<String,Vehicle> getGarageMap() 
+	public ConcurrentSkipListMap<String,Vehicle> getGarageMap()
 	{
 		return garageMap;
 	}

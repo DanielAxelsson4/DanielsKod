@@ -6,9 +6,9 @@ import com.github.DanielAxelsson4.Garage.Exceptions.MotorCycleNotFoundException;
 import com.github.DanielAxelsson4.Garage.Utilities.VehicleType;
 
 /**
- * 
- * @author Daniel Axelsson and Sohrab Azami
  * Class description: Motorcycle class
+ * @author Daniel Axelsson and Sohrab Azami
+ *
  *
  */
 
