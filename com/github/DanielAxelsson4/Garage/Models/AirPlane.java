@@ -8,11 +8,7 @@ package com.github.DanielAxelsson4.Garage.Models;
  */
 
 import com.github.DanielAxelsson4.Garage.Exceptions.AirlineNameNotFoundException;
-<<<<<<< HEAD
 import com.github.DanielAxelsson4.Garage.Exceptions.VehicleNotFoundException;
-=======
-import com.github.DanielAxelsson4.Garage.Exceptions.AirplaneNotFoundException;
-import com.github.DanielAxelsson4.Garage.Utilities.VehicleType;
 
 
 public class AirPlane extends Vehicle {

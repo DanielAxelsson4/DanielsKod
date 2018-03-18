@@ -1,6 +1,5 @@
 package com.github.DanielAxelsson4.Garage.Models;
 
-<<<<<<< HEAD
 import com.github.DanielAxelsson4.Garage.Exceptions.VehicleNotFoundException;
 import com.github.DanielAxelsson4.Garage.Exceptions.ColorNotFoundException;
 
@@ -16,7 +15,7 @@ public class Car extends Vehicle {
 	private int power;
 
 
-<<<<<<< HEAD
+
 	public int getPower() throws VehicleNotFoundException{
 		if( this.power > 0)
 			return power;
