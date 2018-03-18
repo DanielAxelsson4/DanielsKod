@@ -36,7 +36,6 @@ public abstract class GarageHandler {
 	 * Creates and returns a garage
 	 * @param garageName Name of garage
 	 * @param capacity Capacity of the garage
-	 * @return apg Garage
 	 */
 	public Garage createGarage(String garageName, int capacity)
 	{
