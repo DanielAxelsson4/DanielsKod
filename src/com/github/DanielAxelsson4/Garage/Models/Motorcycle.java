@@ -15,6 +15,7 @@ public class Motorcycle extends Vehicle {
 
 	private int cylinderVolume;
 
+
 	public Motorcycle(String registrationNumber, String color, int cylinderVolume, String parkedGarage) throws ColorNotFoundException, VehicleNotFoundException {
 		super(registrationNumber);
 		this.setColor(color);

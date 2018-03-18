@@ -1,0 +1,21 @@
+
+git remote add origin https://github.com/DanielAxelsson4/Garage.git
+cd eclipse-workspace/
+cd Garage
+git init
+status
+git add .
+git commit -m "meddelande"
+
+git push -u origin master
+git push https://github.com/DanielAxelsson4/Garage.git
+
+git pull origin master --allow-unrelated-histories
+git pull https://github.com/DanielAxelsson4/Garage.git
+
+git merge origin origin/master
+
+git clone https://github.com/DanielAxelsson4/Garage.git
+
+
+

@@ -15,6 +15,7 @@ public class Boat extends Vehicle {
 	private int length;
 	private int lifeboats;
 
+
 	public Boat(String registrationNumber, String color, int length, int lifeboats, String parkedGarage) throws ColorNotFoundException, VehicleNotFoundException {
 		super(registrationNumber);
 		this.setColor(color);
@@ -33,6 +34,7 @@ public class Boat extends Vehicle {
 	public String getParkedGarage() {
 		return parkedGarage;
 	}
+
 
 	public void setLength(int length) throws VehicleNotFoundException{
 		if(length > 0 )

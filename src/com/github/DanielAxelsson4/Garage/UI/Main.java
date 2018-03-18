@@ -2,11 +2,19 @@
 package com.github.DanielAxelsson4.Garage.UI;
 
 import javax.swing.JOptionPane;
-
 import com.github.DanielAxelsson4.Garage.MVVM.ConsoleGarageHandler;
 
 /**
  * Main class for executing the Garage application.
+=======
+import com.github.DanielAxelsson4.Garage.Exceptions.GarageAlreadyExistsException;
+import com.github.DanielAxelsson4.Garage.Exceptions.GarageIsFullException;
+import com.github.DanielAxelsson4.Garage.Exceptions.GarageNotFoundException;
+import com.github.DanielAxelsson4.Garage.Exceptions.VehicleNotFoundException;
+import com.github.DanielAxelsson4.Garage.MVVM.ConsoleGarageHandler;
+
+/**
+ * Class description: Main class for executing the Garage application.
  * @author Daniel Axelsson and Sohrab Azami
  *
  *
@@ -159,7 +167,12 @@ public class Main {
 			}
 		}
 
-	}
+	
+
+
+
+
+	
 
 
 
@@ -172,6 +185,7 @@ public class Main {
 
 
 
+}
 }
 
 

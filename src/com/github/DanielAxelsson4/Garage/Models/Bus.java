@@ -9,12 +9,14 @@ package com.github.DanielAxelsson4.Garage.Models;
  *
  */
 
+
 import com.github.DanielAxelsson4.Garage.Exceptions.VehicleNotFoundException;
 import com.github.DanielAxelsson4.Garage.Exceptions.ColorNotFoundException;
 
 public class Bus extends Vehicle {
 
 	private int numberOfSeats;
+
 
 	public Bus(String registrationNumber, String color, int numberOfWheels, int numberOfSeats, String parkedGarage) throws ColorNotFoundException, VehicleNotFoundException {
 		super(registrationNumber);
@@ -34,6 +36,7 @@ public class Bus extends Vehicle {
 	public String getParkedGarage() {
 		return parkedGarage;
 	}
+
 
 
 	public void setNumberOfSeats(int numberOfSeats) throws VehicleNotFoundException

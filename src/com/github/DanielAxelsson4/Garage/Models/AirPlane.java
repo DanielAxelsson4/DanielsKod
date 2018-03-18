@@ -8,11 +8,17 @@ package com.github.DanielAxelsson4.Garage.Models;
  */
 
 import com.github.DanielAxelsson4.Garage.Exceptions.AirlineNameNotFoundException;
+<<<<<<< HEAD
 import com.github.DanielAxelsson4.Garage.Exceptions.VehicleNotFoundException;
+=======
+import com.github.DanielAxelsson4.Garage.Exceptions.AirplaneNotFoundException;
+import com.github.DanielAxelsson4.Garage.Utilities.VehicleType;
+
 
 public class AirPlane extends Vehicle {
 
 	private String airlineName;
+
 
 	public AirPlane(String registrationNumber, int numberOfWheels, String airlineName, String parkedGarage) throws AirlineNameNotFoundException, VehicleNotFoundException {
 		super(registrationNumber);
@@ -77,11 +83,13 @@ public class AirPlane extends Vehicle {
 		return numberOfWheels;
 	}
 
+
 	public void setNumberOfWheels(int numberOfWheels) throws VehicleNotFoundException
 	{
 		if(numberOfWheels > 0)
 			this.numberOfWheels = numberOfWheels;
 		else
 			throw new VehicleNotFoundException();
+
 	}
 }

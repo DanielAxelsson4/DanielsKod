@@ -14,14 +14,12 @@ public abstract class Vehicle {
 	protected String registrationNumber;
 	protected String color;
 	protected int numberOfWheels;
-	//protected VehicleType vehicleType;
 	protected String parkedGarage;
 
 	protected Vehicle(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
 		this.color = "";
 		this.numberOfWheels = 0;
-	//	this.vehicleType = VehicleType.NOTYPE;
 	}
 
 	public String getRegistrationNumber()  {

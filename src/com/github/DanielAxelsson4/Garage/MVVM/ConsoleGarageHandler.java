@@ -3,12 +3,19 @@ package com.github.DanielAxelsson4.Garage.MVVM;
 
 import javax.swing.JOptionPane;
 
+<<<<<<< HEAD
 import com.github.DanielAxelsson4.Garage.Exceptions.AirlineNameNotFoundException;
 import com.github.DanielAxelsson4.Garage.Exceptions.ColorNotFoundException;
 import com.github.DanielAxelsson4.Garage.Exceptions.GarageAlreadyExistsException;
 import com.github.DanielAxelsson4.Garage.Exceptions.GarageIsFullException;
 import com.github.DanielAxelsson4.Garage.Exceptions.GarageNotFoundException;
 import com.github.DanielAxelsson4.Garage.Exceptions.NumberBelowOneException;
+=======
+import com.github.DanielAxelsson4.Garage.Exceptions.GarageAlreadyExistsException;
+import com.github.DanielAxelsson4.Garage.Exceptions.GarageIsFullException;
+import com.github.DanielAxelsson4.Garage.Exceptions.GarageNotFoundException;
+import com.github.DanielAxelsson4.Garage.Exceptions.IllegalNumberException;
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 import com.github.DanielAxelsson4.Garage.Exceptions.VehicleNotFoundException;
 import com.github.DanielAxelsson4.Garage.Models.AirPlane;
 import com.github.DanielAxelsson4.Garage.Models.Boat;
@@ -17,6 +24,10 @@ import com.github.DanielAxelsson4.Garage.Models.Car;
 import com.github.DanielAxelsson4.Garage.Models.Garage;
 import com.github.DanielAxelsson4.Garage.Models.Motorcycle;
 import com.github.DanielAxelsson4.Garage.UI.Main;
+<<<<<<< HEAD
+=======
+import com.github.DanielAxelsson4.Garage.Utilities.GarageType;
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 
 /**
  * Class description: Console GarageHandler class
@@ -185,6 +196,7 @@ public class ConsoleGarageHandler extends GarageHandler {
 				throw new NullPointerException();
 			}
 			if(numberOfWheels <= 0 || power <= 0 ) {
+
 				throw new NumberBelowOneException();
 			}
 			//car = super.createCar(registrationNumber, numberOfWheels, color, power, garageName);
@@ -199,6 +211,7 @@ public class ConsoleGarageHandler extends GarageHandler {
 		catch (GarageIsFullException e)
 		{
 			System.out.println("\n" +  "The garage is full \n ");
+
 			return;
 		}
 		catch (NullPointerException e)
@@ -230,6 +243,7 @@ public class ConsoleGarageHandler extends GarageHandler {
 	 * Prompts the user for inputs and creates a motorcycle
 	 */
 	public void createMotorcycle() {
+
 		try {
 			registrationNumber = JOptionPane.showInputDialog("What's the registrationnumber of the motorcycle?");
 			color = JOptionPane.showInputDialog("What color does the motorcycle have?");
@@ -239,6 +253,7 @@ public class ConsoleGarageHandler extends GarageHandler {
 				throw new NullPointerException();
 			}
 			if(cylinderVolume <= 0) {
+
 				throw new NumberBelowOneException();
 			}
 			//motorcycle = super.createMotorcycle(registrationNumber, color, cylinderVolume, garageName);
@@ -283,6 +298,7 @@ public class ConsoleGarageHandler extends GarageHandler {
 	}
 	/**
 	 * Prompts the user for inputs and creates a bus
+<<<<<<< HEAD
 	 */
 	public void createBus()
 	{
@@ -374,6 +390,24 @@ public class ConsoleGarageHandler extends GarageHandler {
 	 * Prompts the user for inputs and creates an airplane
 	 */
 	public void createAirplane()
+=======
+			Main.callParkMenu();
+		}
+		catch (IllegalNumberException e)
+		{
+			System.out.println("\n" + "Number must be above 0 \n");
+			Main.callParkMenu();
+		}
+	}
+	/**
+	 * Prompts the user for inputs and creates an airplane
+	 * @throws GarageNotFoundException Garage was not found
+	 * @throws GarageIsFullException Garage is full
+	 * @throws GarageAlreadyExistsException Garage already exists
+	 * @throws VehicleNotFoundException Vehicle was not found
+	 */
+	public void createAirplane() throws GarageNotFoundException, GarageIsFullException, GarageAlreadyExistsException, VehicleNotFoundException
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 	{
 		try {
 			registrationNumber = JOptionPane.showInputDialog("What's the registrationnumber of the airplane?");
@@ -386,30 +420,49 @@ public class ConsoleGarageHandler extends GarageHandler {
 			}
 			if(numberOfWheels <= 0)
 			{
+<<<<<<< HEAD
 				throw new NumberBelowOneException();
 			}
 			//airplane = super.createAirplane(registrationNumber, numberOfWheels, airlineName, garageName);
 			airplane = new AirPlane(registrationNumber, numberOfWheels, airlineName, garageName);
+=======
+				throw new IllegalNumberException();
+			}
+			airplane = super.createAirplane(registrationNumber, numberOfWheels, airlineName, garageName);
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 			super.addVehicle(airplane, garageName);
 		}
 		catch(NumberFormatException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
+<<<<<<< HEAD
 			return;
+=======
+			Main.callParkMenu();
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 		}
 		catch (GarageIsFullException e)
 		{
 			System.out.println("\n" +  "The garage is full \n ");
+<<<<<<< HEAD
 			return;
+=======
+			Main.callParkMenu();
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 		}
 		catch (NullPointerException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
+<<<<<<< HEAD
 			return;
+=======
+			Main.callParkMenu();
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 		}
 		catch (GarageNotFoundException e)
 		{
 			System.out.println("\n" + "Garage was not found \n");
+<<<<<<< HEAD
 			return;
 		}
 		catch (NumberBelowOneException e)
@@ -426,12 +479,29 @@ public class ConsoleGarageHandler extends GarageHandler {
 		{
 			System.out.println("Airplane not found");
 			return;
+=======
+			Main.callParkMenu();
+		}
+		catch (IllegalNumberException e)
+		{
+			System.out.println("\n" + "Number must be above 0 \n");
+			Main.callParkMenu();
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 		}
 	}
 	/**
 	 * Prompts the user for inputs and creates a boat
+<<<<<<< HEAD
 	 */
 	public void createBoat()
+=======
+	 * @throws GarageNotFoundException Garage was not found
+	 * @throws GarageIsFullException Garage is full
+	 * @throws GarageAlreadyExistsException Garage already exists
+	 * @throws VehicleNotFoundException Vehicle was not found
+	 */
+	public void createBoat() throws GarageNotFoundException, GarageIsFullException, GarageAlreadyExistsException, VehicleNotFoundException
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 	{
 		try {
 			registrationNumber = JOptionPane.showInputDialog("What's the registrationnumber of the boat?");
@@ -445,30 +515,49 @@ public class ConsoleGarageHandler extends GarageHandler {
 			}
 			if(length <= 0 || lifeboats <= 0)
 			{
+<<<<<<< HEAD
 				throw new NumberBelowOneException();
 			}
 			//boat = super.createBoat(registrationNumber, color, length, lifeboats, garageName);
 			boat = new Boat(registrationNumber, color, length, lifeboats, garageName);
+=======
+				throw new IllegalNumberException();
+			}
+			boat = super.createBoat(registrationNumber, color, length, lifeboats, garageName);
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 			super.addVehicle(boat, garageName);
 		}
 		catch(NumberFormatException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
+<<<<<<< HEAD
 			return;
+=======
+			Main.callParkMenu();
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 		}
 		catch (GarageIsFullException e)
 		{
 			System.out.println("\n" +  "The garage is full \n ");
+<<<<<<< HEAD
 			return;
+=======
+			Main.callParkMenu();
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 		}
 		catch (NullPointerException e)
 		{
 			System.out.println("\n" + "Please input a correct value \n");
+<<<<<<< HEAD
 			return;
+=======
+			Main.callParkMenu();
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 		}
 		catch (GarageNotFoundException e)
 		{
 			System.out.println("\n" + "Garage was not found \n");
+<<<<<<< HEAD
 			return;
 		}
 		catch (NumberBelowOneException e)
@@ -485,6 +574,14 @@ public class ConsoleGarageHandler extends GarageHandler {
 		{
 			System.out.println("The color was not found \n Valid colors are: Black, White, Red, Orange, Yellow, Green, Cyan, Blue, Purple, Magenta, Grey");
 			return;
+=======
+			Main.callParkMenu();
+		}
+		catch (IllegalNumberException e)
+		{
+			System.out.println("\n" + "Number must be above 0 \n");
+			Main.callParkMenu();
+>>>>>>> 010451e6625c0de7c5675672a913c0c627938860
 		}
 	}
 
